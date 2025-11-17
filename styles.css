@@ -1,0 +1,198 @@
+/* ========= Design Tokens ========= */
+:root{
+  --color-bg: #0b0c10;
+  --color-bg-2:#0f1015;
+  --color-card:#16171c;
+  --color-text:#e8e8ea;
+  --color-muted:#b7bcc7;
+  --color-accent:#ff3030;
+
+  --radius-lg:14px;
+  --radius-sm:8px;
+
+  --shadow-lg: 0 10px 30px rgba(0,0,0,.30);
+  --border-color: rgba(255,255,255,.06);
+
+  --container-w: 1120px;
+}
+
+/* ========= Base ========= */
+*{ box-sizing: border-box; }
+html, body { height: 100%; }
+body{
+  margin:0;
+  font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background:var(--color-bg);
+  color:var(--color-text);
+}
+.app{ min-height:100%; isolation:isolate; } /* root hook hữu ích */
+
+/* ========= Layout ========= */
+.container{
+  width:100%;
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ========= Header / Nav ========= */
+.site-header{
+  position: sticky; top:0; z-index: 1000;
+  background: #0a0b10;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: saturate(120%) blur(6px);
+}
+.site-header__inner{
+  display:flex; align-items:center; justify-content:space-between;
+  min-height:64px;
+}
+.brand{
+  display:inline-flex; align-items:center; gap:.6rem;
+  text-decoration:none; color:var(--color-text);
+  font-weight:700; letter-spacing:.3px;
+}
+.brand__dot{ width:10px; height:10px; border-radius:50%; background:var(--color-accent); box-shadow:0 0 12px var(--color-accent); }
+.brand__text{ letter-spacing:.4px; }
+
+.primary-nav{ display:flex; gap:8px; }
+.primary-nav__item{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:36px; padding:0 14px; border-radius:999px;
+  color:var(--color-text); text-decoration:none; font-weight:600; font-size:14px;
+  border: 1px solid transparent;
+}
+.primary-nav__item:hover{ border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.05); }
+
+/* ========= Hero ========= */
+.hero{
+  padding: 96px 0 56px;
+  background:
+    radial-gradient(1200px 500px at 65% 10%, rgba(255,48,48,.15), transparent 55%),
+    linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg) 60%, var(--color-bg-2) 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+.hero__inner{ text-align:center; }
+.hero__title{ margin:0; font-size: clamp(32px, 4vw, 52px); line-height:1.1; }
+.hero__subtitle{ margin: 8px 0 14px; color: var(--color-text); opacity:.85; font-weight:600; }
+
+.chip-list{ margin-top:12px; }
+.chip{
+  display:inline-block; padding:4px 10px; border-radius:999px;
+  border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);
+  font-size:12px; margin-right:6px; color:#cfd2db;
+}
+.chip--ghost{ background:transparent; border-color: rgba(255,255,255,.24); color: var(--color-muted); }
+
+/* ========= Sections / Cards ========= */
+.main{ padding: 40px 0 0; }
+
+.section-block{ padding: 32px 0 64px; }
+.section-block--placeholder{ min-height: 40px; }
+
+.card{
+  background: var(--color-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 28px;
+  animation: rise .6s ease both;
+}
+@keyframes rise{
+  from{ opacity:0; transform: translateY(16px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+.card__header{ margin-bottom: 10px; }
+.kicker{
+  color: var(--color-accent);
+  font-size: 12px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase;
+  display:inline-block; margin-bottom: 6px;
+}
+.card__title{ margin: 0 0 10px; font-size: clamp(24px, 2.6vw, 32px); line-height:1.25; }
+.card__subtitle{ margin: 0 0 12px; color: var(--color-muted); font-size: 15px; }
+
+/* ========= Prose ========= */
+.prose{ font-size:16px; line-height:1.8; color:#eaeaf2; text-align: justify; text-justify: inter-word; }
+.prose p{ margin: 0 0 14px; }
+.prose__section-title{
+  position:relative; margin: 22px 0 8px; padding-left: 14px; font-weight: 800;
+}
+.prose__section-title::before{
+  content:""; position:absolute; left:0; top:50%; transform:translateY(-50%);
+  width:6px; height:80%; border-radius:3px; background: var(--color-accent);
+}
+.prose__meta{ color: var(--color-muted); }
+
+/* ========= Media System ========= */
+.media{
+  margin: 16px 0 18px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: #0e0f14;
+}
+.media img{
+  display:block; width:100%; height:auto; object-fit: cover;
+}
+.media figcaption{
+  padding:10px 12px; font-size:13px; color: var(--color-muted);
+  border-top: 1px solid var(--border-color);
+}
+
+/* cover: full chiều ngang trong card */
+.media--cover img{ height: clamp(220px, 40vw, 420px); }
+
+/* wide: kéo ngang mạnh hơn một chút bằng negative margin (vẫn trong card) */
+.media--wide{ margin-left:-6px; margin-right:-6px; }
+.media--wide img{ height: clamp(220px, 38vw, 400px); }
+
+/* shadow: thêm đổ bóng nhẹ cho ảnh đứng một mình */
+.media--shadow{ box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+
+/* float: ảnh nổi quấn văn bản */
+.media--float-right{
+  float:right;
+  width:min(46%, 420px);
+  margin: 6px 0 12px 16px;
+}
+.media--float-right img{ height: auto; }
+
+/* split: bố cục 2 cột ảnh + chữ */
+.split{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap:16px;
+  align-items: center;
+  margin: 14px 0 18px;
+}
+.split__copy p{ margin:0; }
+
+/* ========= Footer ========= */
+.site-footer{
+  margin-top: 24px;
+  border-top: 1px solid var(--border-color);
+  background: #0a0b10;
+}
+.site-footer__text{
+  margin:0; padding: 28px 0; color:#aeb3bf; text-align:center;
+}
+
+/* ========= Responsive ========= */
+@media (max-width: 920px){
+  .split{ grid-template-columns: 1fr; }
+  .media--float-right{
+    float:none; width:100%;
+    margin: 10px 0 12px 0;
+  }
+}
+@media (max-width: 720px){
+  .site-header__inner{ min-height:56px; }
+  .primary-nav{ gap:4px; }
+  .primary-nav__item{ height:34px; padding:0 12px; font-size:13px; }
+  .card{ padding:20px; }
+  .prose{ font-size:15px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .card{ animation:none; }
+}
