@@ -1,37 +1,34 @@
-F1 Beginner Guide Website
+# F1 Beginner Guide Website
 
-Dự án này là một website giới thiệu Formula 1 dành cho người mới bắt đầu. Mục tiêu là giúp người dùng nắm nhanh các khái niệm cơ bản, hiểu cấu trúc một cuối tuần F1, vai trò của đội đua – tay đua, thông số kỹ thuật và những yếu tố chiến thuật quyết định kết quả mỗi chặng.
+Dự án này là một website giới thiệu Formula 1 dành cho người mới bắt đầu. Mục tiêu là giúp người dùng nắm nhanh các khái niệm cơ bản, hiểu cấu trúc một cuối tuần F1, vai trò của đội đua – tay đua, các thông số kỹ thuật và những yếu tố chiến thuật quyết định kết quả mỗi chặng.
 
-Nội dung chính
+## 📌 Nội dung chính
 
-Giới thiệu F1 và cách hoạt động của giải đua.
+- Giới thiệu F1 và cách hoạt động của giải đua
+- Cấu trúc một cuối tuần F1 (Practice – Qualifying – Race)
+- Hệ thống đội đua, tay đua và chức năng các bộ phận trong team
+- Các thông số kỹ thuật quan trọng của xe F1
+- Chiến thuật thi đấu: pit stop, lốp, thời gian, dữ liệu
+- Lịch sử ngắn gọn và những cột mốc nổi bật
+- Tài liệu tham khảo và gợi ý cho người mới xem F1
 
-Cấu trúc một cuối tuần F1 (Practice – Qualifying – Race).
+## 🛠 Công nghệ sử dụng
 
-Hệ thống đội đua, tay đua và chức năng của từng bộ phận trong team.
+- HTML / CSS / JavaScript
+- Giao diện dạng tab giúp chuyển nội dung mượt, dễ theo dõi
 
-Các thông số kỹ thuật quan trọng của xe F1.
+## 🎯 Mục tiêu dự án
 
-Chiến thuật trong thi đấu: pit stop, lốp, thời gian, dữ liệu.
+- Xây dựng một trang thông tin dễ hiểu, trực quan
+- Đơn giản hóa các khái niệm phức tạp về F1 cho người mới
+- Giúp người dùng tự tin hơn khi bắt đầu theo dõi giải đua
 
-Lịch sử ngắn gọn và những cột mốc nổi bật.
+## 🔄 Tình trạng
 
-Tài liệu tham khảo và hướng dẫn cho người mới xem F1.
+Dự án đang trong quá trình phát triển và cập nhật thêm nội dung.
 
-Công nghệ sử dụng
+## 🚀 Hướng dẫn chạy dự án (local)
 
-HTML / CSS / JavaScript
-
-Thiết kế theo dạng tab để chuyển nội dung mượt, dễ đọc.
-
-Mục tiêu dự án
-
-Tạo một trang thông tin dễ hiểu, trực quan.
-
-Giảm sự phức tạp của F1 cho người mới.
-
-Cung cấp nội dung chất lượng để người dùng có thể bắt đầu xem giải một cách tự tin.
-
-Tình trạng
-
-Đang phát triển và cập nhật nội dung.
+1. Clone repo:
+   ```bash
+   git clone https://github.com/huangzuu0211/f1-guide-for-beginners.git
