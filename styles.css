@@ -307,6 +307,7 @@ body{
   column-gap:8px;
   position:relative;
   border-left: 3px solid transparent;
+  padding-left: 2px;
 }
 .standings-row:last-of-type{
   border-bottom:none;
@@ -315,6 +316,7 @@ body{
 .standings-cell--pos{
   opacity:.8;
   font-weight:600;
+  padding-left: 6px;
 }
 .standings-cell--name{
   display:flex;
@@ -496,6 +498,38 @@ body{
   }
   .card{ padding:20px; }
   .prose{ font-size:15px; }
+}
+
+/* ========= Tab Switcher (navigator giữa 2 trang) ========= */
+.tab-switcher{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  background: #12131a;
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.tab-switcher__link{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;   /* bỏ gạch chân + màu link mặc định */
+  color: var(--color-muted);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.tab-switcher__link--active{
+  background: #ffffff10;
+  color: var(--color-text);
+  border-color: rgba(255,255,255,.18);
 }
 
 @media (prefers-reduced-motion: reduce){
