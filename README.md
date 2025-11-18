@@ -31,4 +31,4 @@ Dự án đang trong quá trình phát triển và cập nhật thêm nội dung
 
 1. Clone repo:
    ```bash
-   git clone https://github.com/huangzuu0211/f1-guide-for-beginners.git
+   https://github.com/huangzuu0211/f1-guide-for-beginners.git
