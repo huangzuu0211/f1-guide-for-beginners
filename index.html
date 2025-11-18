@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cẩm nang F1 dành cho người mới</title>
+  <title>Cẩm nang F1 dành cho người mới – Giới thiệu</title>
 
   <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" />
@@ -17,14 +17,13 @@
   <!-- Header / Nav -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a href="#" class="brand">
+      <a href="tab1.html" class="brand">
         <span class="brand__dot" aria-hidden="true"></span>
         <span class="brand__text">F1 Guide</span>
       </a>
-      <nav class="primary-nav" aria-label="Primary">
-        <a class="primary-nav__item" href="index.html">Giới thiệu</a>
-        <a class="primary-nav__item" href="tab2.html">Bảng xếp hạng 2025</a>
-        <a class="primary-nav__item" href="#tab-3">Bắt đầu xem</a>
+      <nav class="primary-nav" aria-label="Chuyển trang">
+        <a class="primary-nav__item primary-nav__item--active" href="index.html">Giới thiệu</a>
+        <a class="primary-nav__item" href="tab2.html">BXH 2025</a>
       </nav>
     </div>
   </header>
@@ -34,7 +33,7 @@
     <div class="container hero__inner">
       <h1 class="hero__title">Cẩm nang F1 dành cho người mới</h1>
       <p class="hero__subtitle">
-        Giúp bạn nắm nhanh F1 ở mức tổng quan trước khi bắt đầu theo dõi các chặng đua.
+        Giúp bạn nắm nhanh bức tranh tổng quan về F1 trước khi bắt đầu theo dõi các chặng đua.
       </p>
       <div class="chip-list">
         <span class="chip"><i class="fa-solid fa-gauge"></i> Tốc độ</span>
@@ -46,9 +45,19 @@
 
   <!-- Main -->
   <main class="main">
-    <!-- TAB 1 -->
-    <section id="tab-1" class="section-block">
+    <section class="section-block">
       <div class="container">
+
+        <!-- Navigator giữa Tab 1 / Tab 2 -->
+        <div class="tab-switcher" aria-label="Chọn nội dung">
+          <a href="tab1.html" class="tab-switcher__link tab-switcher__link--active">
+            Giới thiệu F1
+          </a>
+          <a href="tab2.html" class="tab-switcher__link">
+            Bảng xếp hạng 2025
+          </a>
+        </div>
+
         <article class="card">
           <header class="card__header">
             <span class="kicker">Tab 1</span>
@@ -59,7 +68,6 @@
           </header>
 
           <div class="prose">
-            <!-- Đoạn 1: giới thiệu tóm gọn -->
             <p>
               F1 (Formula 1) là giải đua xe thể thao ở cấp độ cao nhất, sử dụng những chiếc xe một chỗ ngồi
               được thiết kế chuyên biệt để đạt hiệu suất tối đa. Các chặng đua diễn ra trên nhiều quốc gia khác nhau,
@@ -67,7 +75,6 @@
               lái chính xác và hệ thống tổ chức phức tạp đứng phía sau.
             </p>
 
-            <!-- Hình 1: cover -->
             <figure class="media media--cover">
               <img
                 src="https://media.formula1.com/image/upload/c_lfill,w_3392/q_auto/v1740000000/fom-website/2025/Miscellaneous/2025-start-barcelona.webp"
@@ -75,7 +82,6 @@
               />
             </figure>
 
-            <!-- Đoạn 2: mô tả chi tiết, có tiêu đề riêng -->
             <h3 class="prose__section-title">F1 vận hành như thế nào?</h3>
             <p>
               Mỗi đội đua F1 hoạt động như một tổ chức kỹ thuật quy mô, với các nhóm phụ trách thiết kế, mô phỏng,
@@ -85,7 +91,6 @@
               thu thập theo thời gian thực từ chiếc xe và điều kiện thi đấu.
             </p>
 
-            <!-- Mục: cuối tuần F1 -->
             <h3 class="prose__section-title">Một cuối tuần F1 diễn ra như thế nào?</h3>
             <p>
               Một chặng F1 thường kéo dài ba ngày. Các phiên chạy thử giúp đội đua kiểm tra thiết lập xe, đánh giá lốp
@@ -94,7 +99,6 @@
               theo dõi dữ liệu và điều chỉnh chiến thuật dừng pit phù hợp với diễn biến thực tế trên đường đua.
             </p>
 
-            <!-- Hình 2: split layout -->
             <div class="split">
               <figure class="media media--shadow">
                 <img
@@ -104,12 +108,15 @@
               </figure>
               <div class="split__copy">
                 <p>
-                  Trong suốt cuối tuần thi đấu, đội đua phải theo dõi một lượng lớn dữ liệu được gửi về theo thời gian thực. Những chỉ số quan trọng nhất gồm nhiệt độ và độ mòn của lốp, tốc độ trên từng đoạn thẳng, thời gian vào và thoát cua, mức độ ổn định của xe ở các pha thay đổi hướng, cũng như lượng nhiên liệu còn lại. Tất cả thông tin này được phân tích liên tục để đánh giá hiệu suất thực tế so với kế hoạch ban đầu. Nhờ đó, đội có thể xác định thời điểm dừng pit hợp lý, điều chỉnh chiến thuật tấn công hoặc phòng thủ tùy theo diễn biến của chặng đua, đồng thời đưa ra đề xuất thay đổi phong cách lái nhằm giúp tay đua duy trì tốc độ ổn định và bảo vệ xe đến cuối chặng.
+                  Trong suốt cuối tuần thi đấu, đội đua phải theo dõi một lượng lớn dữ liệu được gửi về theo thời gian thực.
+                  Những chỉ số quan trọng nhất gồm nhiệt độ và độ mòn của lốp, tốc độ trên từng đoạn thẳng, thời gian vào và thoát cua,
+                  mức độ ổn định của xe ở các pha thay đổi hướng, cũng như lượng nhiên liệu còn lại. Tất cả thông tin này được phân tích liên tục
+                  để đánh giá hiệu suất thực tế so với kế hoạch ban đầu, từ đó xác định thời điểm dừng pit hợp lý, điều chỉnh chiến thuật
+                  tấn công hoặc phòng thủ và đề xuất thay đổi phong cách lái giúp tay đua duy trì tốc độ ổn định đến cuối chặng.
                 </p>
               </div>
             </div>
 
-            <!-- Mục: đội ngũ phía sau -->
             <h3 class="prose__section-title">Đội ngũ phía sau tay đua</h3>
             <p>
               Hình ảnh thường thấy là chiếc xe và tay đua, nhưng phía sau là cả một hệ thống hỗ trợ. Từ đội thiết kế
@@ -118,7 +125,6 @@
               đến hiệu suất tổng thể của chiếc xe trong chặng đua.
             </p>
 
-            <!-- Hình 3: float right -->
             <figure class="media media--float-right">
               <img
                 src="https://www.senategpexperiences.com/Uploads/PackageGroups/2087/63DE9839-A9C1-4D37-A436-6B82AC228CB1.jpeg"
@@ -127,21 +133,19 @@
             </figure>
 
             <p>
-              Pit-stop là ví dụ rõ nhất cho mức độ phối hợp đó. Trong vài giây ngắn, cả nhóm phải nâng xe,
+              Pit-stop là ví dụ rõ cho mức độ phối hợp đó. Trong vài giây ngắn, cả nhóm phải nâng xe,
               tháo bốn bánh cũ, lắp bốn bánh mới và bảo đảm chiếc xe rời khu vực pit an toàn. Sai sót nhỏ ở giai đoạn này
               có thể khiến tay đua mất nhiều vị trí hoặc bị phạt, cho thấy tầm quan trọng của từng chi tiết trong F1.
             </p>
 
-            <!-- Mục: lý do thu hút -->
             <h3 class="prose__section-title">Vì sao F1 thu hút nhiều người trẻ?</h3>
             <p>
               F1 thu hút vì kết hợp được tốc độ cao, mức độ cạnh tranh lớn và câu chuyện rõ ràng về con người.
               Người xem không chỉ theo dõi kết quả từng chặng, mà còn quan tâm tới hành trình của từng tay đua,
-              cách đội đua phát triển chiếc xe qua mùa giải và phản ứng trước những thay đổi về luật. Khi xem trong một thời gian đủ dài,
+              cách đội đua phát triển chiếc xe qua mùa giải và phản ứng trước những thay đổi về luật. Khi xem đủ lâu,
               F1 trở thành một chuỗi câu chuyện liên tục, chứ không chỉ là các cuộc đua tách rời.
             </p>
 
-            <!-- Hình 4: wide -->
             <figure class="media media--wide">
               <img
                 src="https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_3392/q_auto/v1740000000/fom-website/2025/Miscellaneous/GettyImages-666401980.webp"
@@ -150,16 +154,12 @@
             </figure>
 
             <p class="prose__meta">
-              Ở các tab tiếp theo, bạn có thể tìm hiểu các luật cơ bản và cách chọn chặng đua đầu tiên để bắt đầu theo dõi F1 một cách dễ dàng hơn.
+              Để hiểu rõ hơn diễn biến mùa giải, hãy xem bảng xếp hạng tay đua và đội đua ở trang Bảng xếp hạng 2025.
             </p>
           </div>
         </article>
       </div>
     </section>
-
-    <!-- Placeholders cho các tab khác -->
-    <section id="tab-2" class="section-block section-block--placeholder" aria-label="Tab 2"></section>
-    <section id="tab-3" class="section-block section-block--placeholder" aria-label="Tab 3"></section>
   </main>
 
   <!-- Footer -->

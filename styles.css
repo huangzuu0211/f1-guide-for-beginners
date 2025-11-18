@@ -196,3 +196,37 @@ body{
 @media (prefers-reduced-motion: reduce){
   .card{ animation:none; }
 }
+
+/* ========= Tab Switcher (navigator trên đầu mỗi trang) ========= */
+.tab-switcher{
+  display:inline-flex;
+  gap:8px;
+  margin-bottom:16px;
+  background:#12131a;
+  padding:4px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.tab-switcher__link{
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  color:var(--color-muted);
+  border:1px solid transparent;
+  white-space:nowrap;
+}
+
+.tab-switcher__link--active{
+  background:#ffffff10;
+  color:var(--color-text);
+  border-color: rgba(255,255,255,.18);
+}
+
+/* Header nav active state (optional) */
+.primary-nav__item--active{
+  border-color: rgba(255,255,255,.22);
+  background: rgba(255,255,255,.10);
+}
