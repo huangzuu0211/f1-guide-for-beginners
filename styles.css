@@ -196,6 +196,7 @@ body{
 @media (prefers-reduced-motion: reduce){
   .card{ animation:none; }
 }
+
 .btn-primary {
     display: inline-block;
     padding: 12px 24px;
