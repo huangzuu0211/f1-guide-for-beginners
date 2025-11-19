@@ -615,6 +615,51 @@ body{
   .prose{ font-size:15px; }
 }
 
+/* ===== Scroll progress bar ===== */
+.scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:3px;
+  width:0;
+  background:linear-gradient(90deg, var(--color-accent), #ffd000);
+  z-index:1500;
+  pointer-events:none;
+}
+
+/* ===== Back to top button ===== */
+.back-to-top{
+  position:fixed;
+  right:20px;
+  bottom:24px;
+  width:36px;
+  height:36px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.3);
+  background:#15161b;
+  color:var(--color-text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(10px);
+  transition:opacity .2s ease, transform .2s ease, box-shadow .2s ease;
+  z-index:1400;
+}
+.back-to-top i{
+  font-size:14px;
+}
+.back-to-top--visible{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+.back-to-top:hover{
+  box-shadow:0 6px 18px rgba(0,0,0,.4);
+}
+
 @media (prefers-reduced-motion: reduce){
   .card{ animation:none; }
   .standings-row--enter{ animation:none; opacity:1; transform:none; }
