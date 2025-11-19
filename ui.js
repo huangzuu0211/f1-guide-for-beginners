@@ -1,4 +1,4 @@
-// Thanh tiến độ khi scroll
+// Thanh tiến độ khi cuộn
 function initScrollProgress() {
   const bar = document.getElementById("scrollProgress");
   if (!bar) return;
@@ -8,7 +8,7 @@ function initScrollProgress() {
     const scrollTop = doc.scrollTop || document.body.scrollTop;
     const scrollHeight = doc.scrollHeight - doc.clientHeight;
     const ratio = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
-    bar.style.width = ratio * 100 + "%";
+    bar.style.width = (ratio * 100).toFixed(2) + "%";
   };
 
   window.addEventListener("scroll", update, { passive: true });
@@ -37,8 +37,44 @@ function initBackToTop() {
   });
 }
 
-// Khởi tạo khi load xong DOM
+// Hiệu ứng hiện dần cho từng section
+function initRevealSections() {
+  const sections = document.querySelectorAll(".prose-section");
+  if (!sections.length) return;
+
+  // Nếu browser không hỗ trợ IntersectionObserver thì thôi
+  if (!("IntersectionObserver" in window)) {
+    sections.forEach(sec => {
+      sec.classList.add("prose-section--visible");
+    });
+    return;
+  }
+
+  sections.forEach(sec => {
+    sec.classList.add("prose-section--hidden");
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("prose-section--visible");
+          entry.target.classList.remove("prose-section--hidden");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+  sections.forEach(sec => observer.observe(sec));
+}
+
+// Init
 document.addEventListener("DOMContentLoaded", () => {
   initScrollProgress();
   initBackToTop();
+  initRevealSections();
 });

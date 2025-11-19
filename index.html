@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cẩm nang F1 dành cho người mới – Giới thiệu</title>
+  <title>Cẩm nang F1 dành cho người mới</title>
 
-  <!-- Fonts & Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
+  <!-- Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" />
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="app">
+
+  <!-- Thanh tiến độ cuộn -->
   <div class="scroll-progress" id="scrollProgress"></div>
-  <!-- Header / Nav -->
+
+  <!-- Header -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a href="index.html" class="brand">
         <span class="brand__dot" aria-hidden="true"></span>
         <span class="brand__text">F1 Guide</span>
       </a>
-      <nav class="primary-nav" aria-label="Chuyển trang">
-        <a class="primary-nav__item primary-nav__item--active" href="index.html">Giới thiệu</a>
-        <a class="primary-nav__item" href="tab2.html">BXH 2025</a>
+      <nav class="primary-nav" aria-label="Điều hướng chính">
+        <span class="primary-nav__item primary-nav__item--static">Cẩm nang F1</span>
       </nav>
     </div>
   </header>
@@ -31,131 +31,168 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container hero__inner">
+      <p class="hero__eyebrow">Dành cho người mới</p>
       <h1 class="hero__title">Cẩm nang F1 dành cho người mới</h1>
       <p class="hero__subtitle">
-        Giúp bạn nắm nhanh bức tranh tổng quan về F1 trước khi bắt đầu theo dõi các chặng đua.
+        Hiểu nhanh F1 là gì, cách giải đấu vận hành, hệ thống điểm, vai trò của đội đua và những gì diễn ra trong một cuối tuần Grand Prix.
       </p>
-      <div class="chip-list">
-        <span class="chip"><i class="fa-solid fa-gauge"></i> Tốc độ</span>
-        <span class="chip"><i class="fa-solid fa-microchip"></i> Công nghệ</span>
-        <span class="chip"><i class="fa-solid fa-chess"></i> Chiến thuật</span>
+      <div class="hero-tags">
+        <span class="hero-tag">Giải thích dễ hiểu</span>
+        <span class="hero-tag">Cấu trúc giải đấu</span>
+        <span class="hero-tag">Chiến thuật &amp; dữ liệu</span>
       </div>
     </div>
   </section>
 
-  <!-- Main -->
+  <!-- Main content -->
   <main class="main">
     <section class="section-block">
       <div class="container">
-
-        <!-- Navigator giữa Giới thiệu & BXH -->
-        <div class="tab-switcher" aria-label="Chọn nội dung">
-          <a href="index.html" class="tab-switcher__link tab-switcher__link--active">
-            Giới thiệu F1
-          </a>
-          <a href="tab2.html" class="tab-switcher__link">
-            Bảng xếp hạng 2025
-          </a>
-        </div>
-
         <article class="card">
           <header class="card__header">
-            <span class="kicker">Tab 1</span>
-            <h2 class="card__title">F1 là gì? Tổng quan dành cho người mới</h2>
+            <span class="kicker">Tổng quan</span>
+            <h2 class="card__title">Đặt nền tảng trước khi xem F1</h2>
             <p class="card__subtitle">
-              Giới thiệu ngắn gọn về F1 và những điểm chính cần biết trước khi bạn bắt đầu xem.
+              Trang này giúp bạn nắm bức tranh toàn cảnh về F1: từ khái niệm, cấu trúc giải đấu, bảng xếp hạng cho tới cách một cuối tuần đua diễn ra.
             </p>
           </header>
 
           <div class="prose">
-            <p>
-              F1 (Formula 1) là giải đua xe thể thao ở cấp độ cao nhất, sử dụng những chiếc xe một chỗ ngồi
-              được thiết kế chuyên biệt để đạt hiệu suất tối đa. Các chặng đua diễn ra trên nhiều quốc gia khác nhau,
-              tạo thành một mùa giải kéo dài gần như quanh năm. Môn thể thao này nổi bật ở tốc độ rất cao, yêu cầu kỹ năng
-              lái chính xác và hệ thống tổ chức phức tạp đứng phía sau.
-            </p>
 
-            <figure class="media media--cover">
-              <img
-                src="https://media.formula1.com/image/upload/c_lfill,w_3392/q_auto/v1740000000/fom-website/2025/Miscellaneous/2025-start-barcelona.webp"
-                alt="Pha xuất phát một chặng đua F1"
-              />
-            </figure>
+            <section class="prose-section">
+              <h3 class="prose__section-title">F1 là gì?</h3>
+              <p>
+                F1 (Formula 1) là giải đua xe một chỗ ngồi ở cấp độ cao nhất của môn đua xe thể thao. Mỗi mùa giải gồm nhiều chặng đua (Grand Prix)
+                diễn ra tại nhiều quốc gia khác nhau, từ đường đua chuyên dụng cho tới các đường phố được cải tạo tạm thời.
+              </p>
+              <p>
+                Điểm khiến F1 khác biệt nằm ở ba yếu tố kết hợp: tốc độ rất cao, xe đua được phát triển như một dự án công nghệ
+                và chiến thuật thi đấu phức tạp. Một chặng đua không chỉ là cuộc so tài giữa các tay đua trên đường,
+                mà còn là cuộc đua về dữ liệu, chiến lược và khả năng phối hợp của cả đội ngũ kỹ thuật phía sau.
+              </p>
+            </section>
 
-            <h3 class="prose__section-title">F1 vận hành như thế nào?</h3>
-            <p>
-              Mỗi đội đua F1 hoạt động như một tổ chức kỹ thuật quy mô, với các nhóm phụ trách thiết kế, mô phỏng,
-              phát triển xe, khai thác dữ liệu và vận hành tại đường đua. Mỗi đội có hai tay đua chính, cùng sử dụng
-              chiếc xe do đội phát triển. Trong suốt mùa giải, xe được nâng cấp liên tục để cải thiện tốc độ, độ ổn định
-              và khả năng phù hợp với từng loại đường đua. Các quyết định kỹ thuật và chiến thuật đều dựa trên dữ liệu
-              thu thập theo thời gian thực từ chiếc xe và điều kiện thi đấu.
-            </p>
+            <section class="prose-section">
+              <h3 class="prose__section-title">Cấu trúc giải đấu: tay đua và đội đua</h3>
+              <p>
+                Trong F1 có hai cuộc đua diễn ra song song:
+              </p>
+              <p>
+                <strong>Giải vô địch tay đua (Drivers’ Championship):</strong>
+                mỗi tay đua tích lũy điểm qua từng chặng. Người có tổng điểm cao nhất cuối mùa trở thành nhà vô địch thế giới.
+              </p>
+              <p>
+                <strong>Giải vô địch đội đua (Constructors’ Championship):</strong>
+                mỗi đội đua thường có hai tay đua. Điểm của hai người được cộng lại để tính điểm đội.
+                Đội có tổng điểm cao nhất cuối mùa là nhà vô địch đội đua.
+              </p>
+              <p>
+                Hệ thống này tạo ra nhiều lớp câu chuyện: có chặng một tay đua thắng nhưng đội của họ vẫn kém điểm so với đối thủ,
+                hoặc ngược lại – đội giành nhiều điểm ổn định dù không thắng quá nhiều chặng.
+              </p>
+            </section>
 
-            <h3 class="prose__section-title">Một cuối tuần F1 diễn ra như thế nào?</h3>
-            <p>
-              Một chặng F1 thường kéo dài ba ngày. Các phiên chạy thử giúp đội đua kiểm tra thiết lập xe, đánh giá lốp
-              và điều kiện mặt đường. Phiên phân hạng quyết định vị trí xuất phát trong cuộc đua chính. Ngày đua chính
-              là lúc mọi thứ được triển khai đầy đủ: tay đua phải quản lý tốc độ, lốp và nhiên liệu, trong khi đội ngũ kỹ thuật
-              theo dõi dữ liệu và điều chỉnh chiến thuật dừng pit phù hợp với diễn biến thực tế trên đường đua.
-            </p>
+            <section class="prose-section">
+              <h3 class="prose__section-title">Hệ thống điểm và ý nghĩa của bảng xếp hạng</h3>
+              <p>
+                Trong cuộc đua chính, F1 dùng thang điểm chuẩn cho các vị trí dẫn đầu. Vị trí càng cao, điểm càng lớn;
+                tay đua cũng có thể nhận thêm điểm thưởng nếu đạt vòng chạy nhanh nhất (fastest lap) trong điều kiện nhất định.
+              </p>
+              <p>
+                <strong>Bảng xếp hạng tay đua</strong> giúp bạn thấy:
+                ai đang dẫn đầu cuộc đua vô địch, khoảng cách điểm giữa các vị trí (ví dụ P1–P2 hoặc nhóm cạnh tranh top 5, top 10)
+                và mức độ ổn định của từng tay đua trong cả mùa giải.
+              </p>
+              <p>
+                <strong>Bảng xếp hạng đội đua</strong> cho thấy:
+                đội nào đang tận dụng tốt nhất cả hai tay đua, đội nào có nền tảng kỹ thuật và chiến lược mạnh,
+                cũng như bức tranh nhóm đầu, nhóm giữa (midfield) và nhóm cuối.
+              </p>
+              <p>
+                Sau mỗi chặng, nhìn vào bảng xếp hạng là cách tốt nhất để hiểu diễn biến dài hạn của mùa giải,
+                thay vì chỉ xem kết quả của từng cuộc đua riêng lẻ.
+              </p>
+            </section>
 
-            <div class="split">
-              <figure class="media media--shadow">
-                <img
-                  src="https://f1chronicle.com/wp-content/uploads/2024/01/SI202412010400-scaled.jpg"
-                  alt="Xe F1 vào cua với tốc độ cao"
-                />
-              </figure>
-              <div class="split__copy">
-                <p>
-                  Trong suốt cuối tuần thi đấu, đội đua phải theo dõi một lượng lớn dữ liệu được gửi về theo thời gian thực.
-                  Những chỉ số quan trọng nhất gồm nhiệt độ và độ mòn của lốp, tốc độ trên từng đoạn thẳng, thời gian vào và thoát cua,
-                  mức độ ổn định của xe ở các pha thay đổi hướng, cũng như lượng nhiên liệu còn lại. Tất cả thông tin này được phân tích liên tục
-                  để đánh giá hiệu suất thực tế so với kế hoạch ban đầu, từ đó xác định thời điểm dừng pit hợp lý, điều chỉnh chiến thuật
-                  tấn công hoặc phòng thủ và đề xuất thay đổi phong cách lái giúp tay đua duy trì tốc độ ổn định đến cuối chặng.
-                </p>
-              </div>
-            </div>
+            <section class="prose-section">
+              <h3 class="prose__section-title">Đội đua và tay đua: ai đang ở đâu?</h3>
+              <p>
+                Mỗi đội đua F1 có bản sắc rõ ràng. Các tên tuổi như McLaren, Mercedes, Ferrari hay Red Bull Racing
+                thường xuất hiện ở nhóm dẫn đầu và thường xuyên tranh chiến thắng chặng cũng như danh hiệu vô địch.
+              </p>
+              <p>
+                Các đội như Williams, Alpine, Aston Martin, Haas, Kick Sauber, Racing Bulls… thường tạo điểm nhấn ở nhóm giữa và cuối,
+                với những chặng đua bất ngờ hoặc chiến thuật khác biệt. Mỗi đội có hai tay đua chính: có người đã dày dạn kinh nghiệm
+                và từng vô địch, có người là tân binh mới bước lên F1 đang cố gắng chứng minh năng lực.
+              </p>
+              <p>
+                Khi mới xem, bạn có thể chọn một hai đội và một tay đua để “theo chân” xuyên suốt mùa giải. Việc này giúp bạn dễ
+                nhớ diễn biến hơn: mỗi lần xem kết quả hoặc bảng xếp hạng, bạn sẽ lập tức nhận ra vị trí của những cái tên mình quan tâm.
+              </p>
+            </section>
 
-            <h3 class="prose__section-title">Đội ngũ phía sau tay đua</h3>
-            <p>
-              Hình ảnh thường thấy là chiếc xe và tay đua, nhưng phía sau là cả một hệ thống hỗ trợ. Từ đội thiết kế
-              làm việc trong hầm gió và môi trường mô phỏng, đến đội kỹ thuật tại đường đua và nhóm pit-stop thực hiện
-              thay lốp trong vài giây. Mỗi bộ phận chịu trách nhiệm một phần công việc riêng, nhưng đều tác động trực tiếp
-              đến hiệu suất tổng thể của chiếc xe trong chặng đua.
-            </p>
+            <section class="prose-section">
+              <h3 class="prose__section-title">Một cuối tuần F1 diễn ra như thế nào?</h3>
+              <p>
+                Thông thường, một chặng F1 kéo dài ba ngày và theo cấu trúc gần giống nhau trên hầu hết các đường đua.
+              </p>
+              <p>
+                <strong>Ngày 1 – Chạy thử (Practice):</strong>
+                đội đua dùng thời gian này để kiểm tra thiết lập xe, đánh giá lốp và điều kiện mặt đường.
+                Các thông số như nhiệt độ lốp, độ bám, lượng nhiên liệu và phản ứng của xe ở những đoạn cua quan trọng đều được ghi lại chi tiết.
+              </p>
+              <p>
+                <strong>Ngày 2 – Phân hạng (Qualifying):</strong>
+                phiên phân hạng quyết định vị trí xuất phát trong cuộc đua chính. Một vòng chạy tốt có thể giúp tay đua xuất phát
+                ở hàng đầu, tạo lợi thế rất lớn khi bước vào ngày đua.
+              </p>
+              <p>
+                <strong>Ngày 3 – Đua chính (Race):</strong>
+                đây là thời điểm mọi thứ được triển khai đầy đủ. Tay đua phải quản lý tốc độ, lốp và nhiên liệu,
+                trong khi đội ngũ kỹ thuật theo dõi dữ liệu theo thời gian thực để quyết định thời điểm dừng pit,
+                chiến lược tấn công hay bảo vệ vị trí và những điều chỉnh phù hợp trong phạm vi luật cho phép.
+              </p>
+              <p>
+                Trong suốt cuối tuần thi đấu, đội đua theo dõi rất nhiều chỉ số: nhiệt độ và độ mòn của lốp, tốc độ trên từng đoạn thẳng,
+                thời gian vào – ra cua, mức độ ổn định của xe ở các pha chuyển hướng và lượng nhiên liệu còn lại.
+                Các dữ liệu này giúp đội đánh giá hiệu suất thực tế và lựa chọn chiến thuật tối ưu cho cuộc đua.
+              </p>
+            </section>
 
-            <figure class="media media--float-right">
-              <img
-                src="https://www.senategpexperiences.com/Uploads/PackageGroups/2087/63DE9839-A9C1-4D37-A436-6B82AC228CB1.jpeg"
-                alt="Pit crew thực hiện pit-stop"
-              />
-            </figure>
+            <section class="prose-section">
+              <h3 class="prose__section-title">Pit-stop và dữ liệu: phần “hậu trường” quyết định kết quả</h3>
+              <p>
+                Một pit-stop tiêu chuẩn chỉ kéo dài vài giây, nhưng lại có thể quyết định thứ hạng. Trong khoảng thời gian rất ngắn đó,
+                cả đội phải nâng xe, tháo bốn bánh cũ, lắp bốn bánh mới và bảo đảm chiếc xe rời khu vực pit an toàn, không phạm luật.
+              </p>
+              <p>
+                Sai sót nhỏ ở pit-stop có thể khiến tay đua mất nhiều vị trí hoặc bị phạt. Vì vậy, F1 luôn nhấn mạnh tầm quan trọng
+                của tổ chức, quy trình và khả năng phối hợp, chứ không chỉ là năng lực của tay đua trên đường đua.
+              </p>
+              <p>
+                Cùng lúc, hệ thống dữ liệu ở mỗi đội hoạt động liên tục. Kỹ sư theo dõi trạng thái xe qua hàng trăm kênh thông tin,
+                so sánh thời gian mỗi vòng với đối thủ, tính toán khả năng dừng pit sớm hoặc muộn (undercut, overcut) để giành lợi thế.
+                Với người mới xem, bạn không cần hiểu hết chi tiết kỹ thuật, chỉ cần biết rằng phía sau mỗi quyết định chiến thuật
+                là cả một lượng dữ liệu lớn được phân tích.
+              </p>
+            </section>
 
-            <p>
-              Pit-stop là ví dụ rõ cho mức độ phối hợp đó. Trong vài giây ngắn, cả nhóm phải nâng xe,
-              tháo bốn bánh cũ, lắp bốn bánh mới và bảo đảm chiếc xe rời khu vực pit an toàn. Sai sót nhỏ ở giai đoạn này
-              có thể khiến tay đua mất nhiều vị trí hoặc bị phạt, cho thấy tầm quan trọng của từng chi tiết trong F1.
-            </p>
+            <section class="prose-section">
+              <h3 class="prose__section-title">Làm sao để bắt đầu theo dõi F1?</h3>
+              <p>
+                Nếu bạn mới bắt đầu, một cách đơn giản là chọn theo dõi trọn vẹn một mùa giải hiện tại. Sau đó:
+              </p>
+              <p>
+                hãy chọn một đội và một tay đua mà bạn thấy hứng thú, xem kết quả sau mỗi chặng và đối chiếu với bảng xếp hạng tay đua
+                lẫn đội đua. Khi đã quen, bạn có thể chú ý nhiều hơn đến chiến thuật pit-stop, sự khác nhau giữa các đường đua
+                và cách luật thi đấu ảnh hưởng tới kết quả.
+              </p>
+              <p>
+                Sau vài chặng, bạn sẽ nhận ra F1 không chỉ là những chiếc xe chạy nhanh, mà là một giải đấu có cấu trúc rõ ràng,
+                nhiều lớp câu chuyện và rất dễ trở thành thói quen xem mỗi cuối tuần.
+              </p>
+            </section>
 
-            <h3 class="prose__section-title">Vì sao F1 thu hút nhiều người trẻ?</h3>
-            <p>
-              F1 thu hút vì kết hợp được tốc độ cao, mức độ cạnh tranh lớn và câu chuyện rõ ràng về con người.
-              Người xem không chỉ theo dõi kết quả từng chặng, mà còn quan tâm tới hành trình của từng tay đua,
-              cách đội đua phát triển chiếc xe qua mùa giải và phản ứng trước những thay đổi về luật. Khi xem đủ lâu,
-              F1 trở thành một chuỗi câu chuyện liên tục, chứ không chỉ là các cuộc đua tách rời.
-            </p>
-
-            <figure class="media media--wide">
-              <img
-                src="https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_3392/q_auto/v1740000000/fom-website/2025/Miscellaneous/GettyImages-666401980.webp"
-                alt="Toàn cảnh một đường đua F1"
-              />
-            </figure>
-
-            <p class="prose__meta">
-              Muốn xem tình hình cạnh tranh cụ thể trong mùa giải, hãy chuyển sang trang Bảng xếp hạng 2025.
-            </p>
           </div>
         </article>
       </div>
@@ -165,12 +202,16 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      <p class="site-footer__text">© 2025 F1 Guide</p>
+      <p class="site-footer__text">© 2025 F1 Guide – Cẩm nang cơ bản dành cho người mới.</p>
     </div>
   </footer>
+
+  <!-- Nút về đầu trang -->
   <button class="back-to-top" id="backToTop" aria-label="Lên đầu trang">
-    <i class="fa-solid fa-arrow-up"></i>
+    ↑
   </button>
+
+  <!-- JS thuần cho hiệu ứng chung -->
   <script src="ui.js"></script>
 </body>
 </html>
