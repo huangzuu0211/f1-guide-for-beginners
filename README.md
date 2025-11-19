@@ -1,34 +1,83 @@
+````markdown
 # F1 Beginner Guide Website
 
-Dự án này là một website giới thiệu Formula 1 dành cho người mới bắt đầu. Mục tiêu là giúp người dùng nắm nhanh các khái niệm cơ bản, hiểu cấu trúc một cuối tuần F1, vai trò của đội đua – tay đua, các thông số kỹ thuật và những yếu tố chiến thuật quyết định kết quả mỗi chặng.
+Website giới thiệu Formula 1 dành cho người mới, được xây dựng bằng **HTML / CSS / JavaScript thuần**. Nội dung được tổ chức theo dạng tab giúp người xem dễ theo dõi và tiếp cận thông tin một cách gọn gàng.
 
-## 📌 Nội dung chính
+---
 
-- Giới thiệu F1 và cách hoạt động của giải đua
-- Cấu trúc một cuối tuần F1 (Practice – Qualifying – Race)
-- Hệ thống đội đua, tay đua và chức năng các bộ phận trong team
-- Các thông số kỹ thuật quan trọng của xe F1
-- Chiến thuật thi đấu: pit stop, lốp, thời gian, dữ liệu
-- Lịch sử ngắn gọn và những cột mốc nổi bật
-- Tài liệu tham khảo và gợi ý cho người mới xem F1
+## 🎯 Chủ đề dự án
 
-## 🛠 Công nghệ sử dụng
+Trang web tập trung vào việc giải thích các khái niệm nền tảng của F1:
+- Đội đua và tay đua vận hành thế nào  
+- Cấu trúc một cuối tuần F1  
+- Các yếu tố kỹ thuật của xe F1  
+- Chiến thuật thi đấu: pit stop, lốp, thời gian, dữ liệu  
+- Nội dung dành cho người mới bắt đầu theo dõi giải đua  
 
-- HTML / CSS / JavaScript
-- Giao diện dạng tab giúp chuyển nội dung mượt, dễ theo dõi
+Giao diện đơn giản, dễ sử dụng và phù hợp cho người mới.
 
-## 🎯 Mục tiêu dự án
+---
 
-- Xây dựng một trang thông tin dễ hiểu, trực quan
-- Đơn giản hóa các khái niệm phức tạp về F1 cho người mới
-- Giúp người dùng tự tin hơn khi bắt đầu theo dõi giải đua
+## 🚀 Cách chạy dự án
 
-## 🔄 Tình trạng
+### 1. Chạy trực tiếp (GitHub Pages)
 
-Dự án đang trong quá trình phát triển và cập nhật thêm nội dung.
+Dự án đã được deploy tại:
 
-## 🚀 Hướng dẫn chạy dự án (local)
+👉 **https://huangzuu0211.github.io/web12-12f2-g09-formula1/**
 
-1. Clone repo:
+Chỉ cần mở link để sử dụng website.
+
+---
+
+### 2. Chạy local trên máy
+
+1. Clone repository:
    ```bash
-   https://github.com/huangzuu0211/f1-guide-for-beginners.git
+   git clone https://github.com/<your-username>/<your-repo>.git
+````
+
+2. Mở file:
+
+   ```text
+   index.html
+   ```
+
+   bằng trình duyệt bất kỳ.
+
+Không yêu cầu cài thêm thư viện, vì dự án chạy 100% bằng HTML/CSS/JS thuần.
+
+---
+
+## 👥 Thành viên thực hiện
+
+| Họ tên                 | Vai trò                         |
+| ---------------------- | ------------------------------- |
+|      Vũ Minh Hoàng     | HTML, CSS, thiết kế giao diện   |
+| Nguyễn Phan Minh Hương | JavaScript, nội dung, animation |
+
+> Khi nộp bài, hãy thay bằng tên thật của nhóm.
+
+---
+
+## 📂 Phân công công việc
+
+### Thành viên 1
+
+* Thiết kế UI: bố cục, màu sắc, font, icon
+* Dựng layout bằng HTML
+* Hoàn thiện CSS và điều chỉnh giao diện
+
+### Thành viên 2
+
+* Viết JavaScript cho chuyển tab và các hiệu ứng
+* Thêm animation để website sinh động
+* Viết nội dung giới thiệu về F1, đội đua, tay đua, luật, kỹ thuật
+* Kiểm thử giao diện và sửa lỗi
+
+---
+
+Dự án hướng đến việc xây dựng một website trực quan, dễ hiểu và hữu ích cho người mới tiếp cận Formula 1.
+
+```
+```
