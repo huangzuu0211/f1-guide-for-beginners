@@ -156,19 +156,6 @@ a{
   font-size:15px;
   color:var(--color-muted);
 }
-.hero-tags{
-  margin-top:10px;
-}
-.hero-tag{
-  display:inline-block;
-  padding:4px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,0.16);
-  background:rgba(4,6,15,0.8);
-  font-size:12px;
-  color:#d2d5e0;
-  margin:0 4px;
-}
 
 /* ========= Main / Card ========= */
 .main{
