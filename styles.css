@@ -14,6 +14,18 @@
   --border-subtle:rgba(255,255,255,0.08);
 
   --container-w:1100px;
+
+  /* Team colors (tab2) */
+  --team-mclaren:   #ff8000;
+  --team-mercedes:  #00d2be;
+  --team-redbull:   #1e5bc6;
+  --team-ferrari:   #dc0000;
+  --team-williams:  #005aff;
+  --team-racingbulls:#2b4562;
+  --team-astonmartin:#006f62;
+  --team-haas:      #b6babd;
+  --team-sauber:    #52e252;
+  --team-alpine:    #0090ff;
 }
 
 /* ========= Reset / Base ========= */
@@ -246,7 +258,7 @@ a{
   font-weight:600;
 }
 
-/* ========= Article Images ========= */
+/* ========= Article Images (index) ========= */
 .article-img{
   margin:16px 0 18px;
   border-radius:14px;
@@ -259,18 +271,12 @@ a{
   display:block;
   object-fit:cover;
 }
-
-/* ảnh rộng, cover hero-style */
 .article-img--wide img{
   max-height:420px;
 }
-
-/* ảnh full block bình thường */
 .article-img--full img{
   max-height:380px;
 }
-
-/* ảnh bên phải đoạn text */
 .article-img--side{
   float:right;
   width:min(46%, 420px);
@@ -281,7 +287,7 @@ a{
   max-height:340px;
 }
 
-/* ========= Scroll progress ========= */
+/* ========= Scroll progress (index + tab2) ========= */
 .scroll-progress{
   position:fixed;
   top:0;
@@ -293,7 +299,7 @@ a{
   pointer-events:none;
 }
 
-/* ========= Back to top ========= */
+/* ========= Back to top (index + tab2) ========= */
 .back-to-top{
   position:fixed;
   right:18px;
@@ -325,7 +331,7 @@ a{
   box-shadow:0 8px 20px rgba(0,0,0,0.55);
 }
 
-/* ========= Section reveal animation ========= */
+/* ========= Section reveal animation (index) ========= */
 .prose-section{
   transition:opacity .35s ease, transform .35s ease;
 }
@@ -336,6 +342,321 @@ a{
 .prose-section--visible{
   opacity:1;
   transform:translateY(0);
+}
+
+/* ========= Standings Layout (tab2) ========= */
+.standings-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:24px;
+  margin-top:8px;
+  align-items:stretch;
+}
+.standings-column{
+  background:#15161b;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.08);
+  padding:18px 18px 14px;
+  display:flex;
+  flex-direction:column;
+}
+.standings-title{
+  margin:0 0 10px 0;
+  font-size:18px;
+  font-weight:700;
+}
+
+/* Header (sort buttons) */
+.standings-header{
+  display:grid;
+  grid-template-columns: 40px 1fr 64px;
+  padding:4px 8px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.10);
+  background:#14151c;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color: var(--color-muted);
+}
+.standings-header__cell--pos{ text-align:left; }
+.standings-header__cell--pts{ text-align:right; }
+
+/* Sort button styling */
+.js-sort{
+  background:transparent;
+  border:none;
+  color:inherit;
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:4px;
+  padding:2px 0;
+}
+.js-sort--asc::after,
+.js-sort--desc::after{
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  font-size:10px;
+}
+.js-sort--asc::after{
+  content:"\f077"; /* caret-up */
+}
+.js-sort--desc::after{
+  content:"\f078"; /* caret-down */
+}
+
+/* Body */
+.standings-body{
+  margin-top:4px;
+}
+
+.standings-row{
+  display:grid;
+  grid-template-columns: 40px 1fr 64px;
+  align-items:center;
+  padding:8px 0;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  font-size:14px;
+  column-gap:8px;
+  position:relative;
+  border-left: 3px solid transparent;
+  transition:
+    background .18s ease,
+    transform .18s ease,
+    box-shadow .18s ease;
+}
+.standings-row:last-of-type{
+  border-bottom:none;
+}
+
+/* đồng bộ chiều cao 2 bảng */
+.standings-column[data-table="drivers"] .standings-row,
+.standings-column[data-table="teams"] .standings-row{
+  min-height:46px;
+}
+
+.standings-cell--pos{
+  opacity:.8;
+  font-weight:600;
+  padding-left:6px;
+}
+.standings-cell--name{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  position:relative;
+  padding-left:0;
+}
+.standings-cell--pts{
+  text-align:right;
+  font-weight:600;
+  opacity:.9;
+}
+
+.driver-main,
+.team-main{
+  font-weight:600;
+  margin-left:18px;
+}
+.driver-sub{
+  font-size:12px;
+  color: var(--color-muted);
+  margin-left:18px;
+}
+
+.team-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  margin-right:6px;
+  flex-shrink:0;
+  position:absolute;
+  left:0;
+  top:4px;
+}
+
+.standings-note{
+  margin-top:auto;
+  font-size:12px;
+  color: var(--color-muted);
+}
+
+/* Animation khi render dòng */
+.standings-row--enter{
+  opacity:0;
+  transform:translateY(6px);
+  animation: standings-enter .35s ease forwards;
+}
+@keyframes standings-enter{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* Highlight các dòng cùng team */
+.standings-row--related{
+  box-shadow:0 0 0 1px rgba(255,255,255,.16);
+  transform:translateX(2px);
+  background: linear-gradient(90deg, rgba(255,255,255,.05), transparent 60%);
+}
+
+/* ========= Toolbar (search + filter + reset) – tab2 ========= */
+.standings-toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:14px;
+  align-items:center;
+}
+.standings-toolbar__group{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:#14151c;
+  border-radius:999px;
+  padding:4px 12px;
+  border:1px solid rgba(255,255,255,.08);
+}
+.standings-label{
+  font-size:12px;
+  color:var(--color-muted);
+  display:flex;
+  align-items:center;
+}
+.standings-input,
+.standings-select{
+  border:none;
+  outline:none;
+  background:transparent;
+  color:var(--color-text);
+  font-size:13px;
+  font-family:inherit;
+}
+.standings-input{
+  min-width:200px;
+}
+.standings-input::placeholder{
+  color:var(--color-muted);
+}
+.standings-select{
+  padding-right:4px;
+}
+.standings-select option{
+  background:#14151c;
+  color:var(--color-text);
+}
+.standings-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background:#15161b;
+  color:var(--color-text);
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+}
+.standings-btn i{ font-size:12px; }
+.standings-btn:hover{
+  background:#1b1c24;
+}
+
+/* ========= Team color bindings (tab2) ========= */
+
+/* McLaren */
+.standings-row--mclaren{
+  border-left-color: var(--team-mclaren);
+  background: linear-gradient(90deg, rgba(255,128,0,.08), transparent 55%);
+}
+.team-dot--mclaren{
+  background: var(--team-mclaren);
+}
+
+/* Mercedes */
+.standings-row--mercedes{
+  border-left-color: var(--team-mercedes);
+  background: linear-gradient(90deg, rgba(0,210,190,.10), transparent 55%);
+}
+.team-dot--mercedes{
+  background: var(--team-mercedes);
+}
+
+/* Red Bull */
+.standings-row--redbull{
+  border-left-color: var(--team-redbull);
+  background: linear-gradient(90deg, rgba(30,91,198,.10), transparent 55%);
+}
+.team-dot--redbull{
+  background: var(--team-redbull);
+}
+
+/* Ferrari */
+.standings-row--ferrari{
+  border-left-color: var(--team-ferrari);
+  background: linear-gradient(90deg, rgba(220,0,0,.10), transparent 55%);
+}
+.team-dot--ferrari{
+  background: var(--team-ferrari);
+}
+
+/* Williams */
+.standings-row--williams{
+  border-left-color: var(--team-williams);
+  background: linear-gradient(90deg, rgba(0,90,255,.10), transparent 55%);
+}
+.team-dot--williams{
+  background: var(--team-williams);
+}
+
+/* Racing Bulls */
+.standings-row--racingbulls{
+  border-left-color: var(--team-racingbulls);
+  background: linear-gradient(90deg, rgba(43,69,98,.14), transparent 55%);
+}
+.team-dot--racingbulls{
+  background: var(--team-racingbulls);
+}
+
+/* Aston Martin */
+.standings-row--astonmartin{
+  border-left-color: var(--team-astonmartin);
+  background: linear-gradient(90deg, rgba(0,111,98,.12), transparent 55%);
+}
+.team-dot--astonmartin{
+  background: var(--team-astonmartin);
+}
+
+/* Haas */
+.standings-row--haas{
+  border-left-color: var(--team-haas);
+  background: linear-gradient(90deg, rgba(182,186,189,.14), transparent 55%);
+}
+.team-dot--haas{
+  background: var(--team-haas);
+}
+
+/* Sauber / Kick Sauber */
+.standings-row--sauber{
+  border-left-color: var(--team-sauber);
+  background: linear-gradient(90deg, rgba(82,226,82,.12), transparent 55%);
+}
+.team-dot--sauber{
+  background: var(--team-sauber);
+}
+
+/* Alpine */
+.standings-row--alpine{
+  border-left-color: var(--team-alpine);
+  background: linear-gradient(90deg, rgba(0,144,255,.12), transparent 55%);
+}
+.team-dot--alpine{
+  background: var(--team-alpine);
 }
 
 /* ========= Footer ========= */
@@ -374,6 +695,9 @@ a{
     width:100%;
     margin:12px 0;
   }
+  .standings-grid{
+    grid-template-columns:1fr;
+  }
 }
 
 @media (max-width: 480px){
@@ -397,6 +721,10 @@ a{
   }
   .prose-section--hidden,
   .prose-section--visible{
+    opacity:1;
+    transform:none;
+  }
+  .standings-row--enter{
     opacity:1;
     transform:none;
   }
