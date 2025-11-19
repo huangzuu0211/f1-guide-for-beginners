@@ -410,6 +410,7 @@ a{
   column-gap:8px;
   position:relative;
   border-left: 3px solid transparent;
+  color: rgba(255,255,255,0.5);
   transition:
     background .18s ease,
     transform .18s ease,
@@ -485,10 +486,16 @@ a{
 }
 
 /* Highlight các dòng cùng team */
+/* Highlight theo màu team (premium glow) */
 .standings-row--related{
-  box-shadow:0 0 0 1px rgba(255,255,255,.16);
-  transform:translateX(2px);
-  background: linear-gradient(90deg, rgba(255,255,255,.05), transparent 60%);
+  background: linear-gradient(90deg, rgba(255,255,255,0.05), transparent 70%);
+  border-left-width: 5px;
+  transform:none;
+  box-shadow: 0 0 16px currentColor;
+  transition:
+    background .25s ease,
+    box-shadow .25s ease,
+    border-left-width .25s ease;
 }
 
 /* ========= Toolbar (search + filter + reset) – tab2 ========= */
@@ -558,6 +565,7 @@ a{
 
 /* McLaren */
 .standings-row--mclaren{
+  color: var(--team-mclaren);
   border-left-color: var(--team-mclaren);
   background: linear-gradient(90deg, rgba(255,128,0,.08), transparent 55%);
 }
@@ -567,6 +575,7 @@ a{
 
 /* Mercedes */
 .standings-row--mercedes{
+  color: var(--team-mercedes);
   border-left-color: var(--team-mercedes);
   background: linear-gradient(90deg, rgba(0,210,190,.10), transparent 55%);
 }
@@ -576,6 +585,7 @@ a{
 
 /* Red Bull */
 .standings-row--redbull{
+  color: var(--team-redbull);
   border-left-color: var(--team-redbull);
   background: linear-gradient(90deg, rgba(30,91,198,.10), transparent 55%);
 }
@@ -585,6 +595,7 @@ a{
 
 /* Ferrari */
 .standings-row--ferrari{
+  color: var(--team-ferrari);
   border-left-color: var(--team-ferrari);
   background: linear-gradient(90deg, rgba(220,0,0,.10), transparent 55%);
 }
@@ -594,6 +605,7 @@ a{
 
 /* Williams */
 .standings-row--williams{
+  color: var(--team-williams);
   border-left-color: var(--team-williams);
   background: linear-gradient(90deg, rgba(0,90,255,.10), transparent 55%);
 }
@@ -603,6 +615,7 @@ a{
 
 /* Racing Bulls */
 .standings-row--racingbulls{
+  color: var(--team-racingbulls);
   border-left-color: var(--team-racingbulls);
   background: linear-gradient(90deg, rgba(43,69,98,.14), transparent 55%);
 }
@@ -612,6 +625,7 @@ a{
 
 /* Aston Martin */
 .standings-row--astonmartin{
+  color: var(--team-astonmartin);
   border-left-color: var(--team-astonmartin);
   background: linear-gradient(90deg, rgba(0,111,98,.12), transparent 55%);
 }
@@ -621,6 +635,7 @@ a{
 
 /* Haas */
 .standings-row--haas{
+  color: var(--team-haas);
   border-left-color: var(--team-haas);
   background: linear-gradient(90deg, rgba(182,186,189,.14), transparent 55%);
 }
@@ -630,6 +645,7 @@ a{
 
 /* Sauber / Kick Sauber */
 .standings-row--sauber{
+  color: var(--team-sauber);
   border-left-color: var(--team-sauber);
   background: linear-gradient(90deg, rgba(82,226,82,.12), transparent 55%);
 }
@@ -639,6 +655,7 @@ a{
 
 /* Alpine */
 .standings-row--alpine{
+  color: var(--team-alpine);
   border-left-color: var(--team-alpine);
   background: linear-gradient(90deg, rgba(0,144,255,.12), transparent 55%);
 }
