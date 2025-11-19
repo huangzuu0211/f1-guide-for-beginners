@@ -623,5 +623,5 @@ body{
 /* ÉP HAI BẢNG CÓ ROW CAO BẰNG NHAU */
 .standings-column[data-table="drivers"] .standings-row,
 .standings-column[data-table="teams"] .standings-row {
-  min-height: 46px;
+  min-height: 50px;
 }
