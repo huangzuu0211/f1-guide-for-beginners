@@ -42,7 +42,6 @@ function initRevealSections() {
   const sections = document.querySelectorAll(".prose-section");
   if (!sections.length) return;
 
-  // Nếu browser không hỗ trợ IntersectionObserver thì thôi
   if (!("IntersectionObserver" in window)) {
     sections.forEach(sec => {
       sec.classList.add("prose-section--visible");
