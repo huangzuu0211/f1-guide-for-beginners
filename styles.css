@@ -619,3 +619,9 @@ body{
   .card{ animation:none; }
   .standings-row--enter{ animation:none; opacity:1; transform:none; }
 }
+
+/* ÉP HAI BẢNG CÓ ROW CAO BẰNG NHAU */
+.standings-column[data-table="drivers"] .standings-row,
+.standings-column[data-table="teams"] .standings-row {
+  min-height: 46px;
+}
