@@ -258,7 +258,7 @@ body{
 }
 .split__copy p{ margin:0; }
 
-/* ========= Standings (layout + table) ========= */
+/* ========= Standings Layout ========= */
 .standings-grid{
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(0,1fr);
@@ -279,11 +279,15 @@ body{
   font-size:18px;
   font-weight:700;
 }
+
+/* Header (sort buttons) */
 .standings-header{
   display:grid;
   grid-template-columns: 40px 1fr 64px;
-  padding:6px 0;
-  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:4px 8px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.10);
+  background:#14151c;
   font-size:13px;
   text-transform:uppercase;
   letter-spacing:.08em;
@@ -291,6 +295,38 @@ body{
 }
 .standings-header__cell--pos{ text-align:left; }
 .standings-header__cell--pts{ text-align:right; }
+
+/* Sort button styling */
+.js-sort{
+  background:transparent;
+  border:none;
+  color:inherit;
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:4px;
+  padding:2px 0;
+}
+.js-sort--asc::after,
+.js-sort--desc::after{
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  font-size:10px;
+}
+.js-sort--asc::after{
+  content:"\f077"; /* caret-up */
+}
+.js-sort--desc::after{
+  content:"\f078"; /* caret-down */
+}
+
+/* Body */
+.standings-body{
+  margin-top:4px;
+}
+
 .standings-row{
   display:grid;
   grid-template-columns: 40px 1fr 64px;
@@ -309,10 +345,11 @@ body{
 .standings-row:last-of-type{
   border-bottom:none;
 }
+
 .standings-cell--pos{
   opacity:.8;
   font-weight:600;
-  padding-left:6px;
+  padding-left:6px; /* cách lề trái 1 chút */
 }
 .standings-cell--name{
   display:flex;
@@ -326,6 +363,7 @@ body{
   font-weight:600;
   opacity:.9;
 }
+
 .driver-main,
 .team-main{
   font-weight:600;
@@ -336,6 +374,7 @@ body{
   color: var(--color-muted);
   margin-left:18px;
 }
+
 .team-dot{
   width:10px;
   height:10px;
@@ -346,16 +385,34 @@ body{
   left:0;
   top:4px;
 }
+
 .standings-note{
   margin-top:auto;
   font-size:12px;
   color: var(--color-muted);
 }
-.standings-body{
-  margin-top:4px;
+
+/* Animation khi render dòng */
+.standings-row--enter{
+  opacity:0;
+  transform:translateY(6px);
+  animation: standings-enter .35s ease forwards;
+}
+@keyframes standings-enter{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
-/* ========= Toolbar (search/filter/reset) ========= */
+/* Highlight các dòng cùng team */
+.standings-row--related{
+  box-shadow:0 0 0 1px rgba(255,255,255,.16);
+  transform:translateX(2px);
+  background: linear-gradient(90deg, rgba(255,255,255,.05), transparent 60%);
+}
+
+/* ========= Toolbar (search + filter + reset) ========= */
 .standings-toolbar{
   display:flex;
   flex-wrap:wrap;
@@ -363,21 +420,24 @@ body{
   margin-bottom:14px;
   align-items:center;
 }
+
 .standings-toolbar__group{
   display:flex;
   align-items:center;
   gap:6px;
   background:#14151c;
   border-radius:999px;
-  padding:4px 10px;
+  padding:4px 12px;
   border:1px solid rgba(255,255,255,.08);
 }
+
 .standings-label{
   font-size:12px;
   color:var(--color-muted);
   display:flex;
   align-items:center;
 }
+
 .standings-input,
 .standings-select{
   border:none;
@@ -386,20 +446,30 @@ body{
   color:var(--color-text);
   font-size:13px;
   font-family:inherit;
-  min-width:140px;
 }
+
+.standings-input{
+  min-width:200px;
+}
+
 .standings-input::placeholder{
   color:var(--color-muted);
 }
+
+.standings-select{
+  padding-right:4px;
+}
+
 .standings-select option{
   background:#14151c;
   color:var(--color-text);
 }
+
 .standings-btn{
   display:inline-flex;
   align-items:center;
   gap:6px;
-  padding:6px 12px;
+  padding:6px 14px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.16);
   background:#15161b;
@@ -413,50 +483,9 @@ body{
   background:#1b1c24;
 }
 
-/* ========= Animation & highlight ========= */
-.standings-row--enter{
-  opacity:0;
-  transform:translateY(6px);
-  animation: standings-enter .35s ease forwards;
-}
-@keyframes standings-enter{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-.standings-row--related{
-  box-shadow:0 0 0 1px rgba(255,255,255,.16);
-  transform:translateX(2px);
-  background: linear-gradient(90deg, rgba(255,255,255,.05), transparent 60%);
-}
-
-/* sort buttons */
-.js-sort{
-  background:transparent;
-  border:none;
-  color:var(--color-muted);
-  font:inherit;
-  text-align:left;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  gap:4px;
-}
-.js-sort--asc::after,
-.js-sort--desc::after{
-  font-family:"Font Awesome 6 Free";
-  font-weight:900;
-  font-size:10px;
-}
-.js-sort--asc::after{
-  content:"\f077";
-}
-.js-sort--desc::after{
-  content:"\f078";
-}
-
 /* ========= Team color bindings ========= */
+
+/* McLaren */
 .standings-row--mclaren{
   border-left-color: var(--team-mclaren);
   background: linear-gradient(90deg, rgba(255,128,0,.08), transparent 55%);
@@ -464,6 +493,8 @@ body{
 .team-dot--mclaren{
   background: var(--team-mclaren);
 }
+
+/* Mercedes */
 .standings-row--mercedes{
   border-left-color: var(--team-mercedes);
   background: linear-gradient(90deg, rgba(0,210,190,.10), transparent 55%);
@@ -471,6 +502,8 @@ body{
 .team-dot--mercedes{
   background: var(--team-mercedes);
 }
+
+/* Red Bull */
 .standings-row--redbull{
   border-left-color: var(--team-redbull);
   background: linear-gradient(90deg, rgba(30,91,198,.10), transparent 55%);
@@ -478,6 +511,8 @@ body{
 .team-dot--redbull{
   background: var(--team-redbull);
 }
+
+/* Ferrari */
 .standings-row--ferrari{
   border-left-color: var(--team-ferrari);
   background: linear-gradient(90deg, rgba(220,0,0,.10), transparent 55%);
@@ -485,6 +520,8 @@ body{
 .team-dot--ferrari{
   background: var(--team-ferrari);
 }
+
+/* Williams */
 .standings-row--williams{
   border-left-color: var(--team-williams);
   background: linear-gradient(90deg, rgba(0,90,255,.10), transparent 55%);
@@ -492,6 +529,8 @@ body{
 .team-dot--williams{
   background: var(--team-williams);
 }
+
+/* Racing Bulls */
 .standings-row--racingbulls{
   border-left-color: var(--team-racingbulls);
   background: linear-gradient(90deg, rgba(43,69,98,.14), transparent 55%);
@@ -499,6 +538,8 @@ body{
 .team-dot--racingbulls{
   background: var(--team-racingbulls);
 }
+
+/* Aston Martin */
 .standings-row--astonmartin{
   border-left-color: var(--team-astonmartin);
   background: linear-gradient(90deg, rgba(0,111,98,.12), transparent 55%);
@@ -506,6 +547,8 @@ body{
 .team-dot--astonmartin{
   background: var(--team-astonmartin);
 }
+
+/* Haas */
 .standings-row--haas{
   border-left-color: var(--team-haas);
   background: linear-gradient(90deg, rgba(182,186,189,.14), transparent 55%);
@@ -513,6 +556,8 @@ body{
 .team-dot--haas{
   background: var(--team-haas);
 }
+
+/* Sauber / Kick Sauber */
 .standings-row--sauber{
   border-left-color: var(--team-sauber);
   background: linear-gradient(90deg, rgba(82,226,82,.12), transparent 55%);
@@ -520,6 +565,8 @@ body{
 .team-dot--sauber{
   background: var(--team-sauber);
 }
+
+/* Alpine */
 .standings-row--alpine{
   border-left-color: var(--team-alpine);
   background: linear-gradient(90deg, rgba(0,144,255,.12), transparent 55%);
@@ -570,4 +617,5 @@ body{
 
 @media (prefers-reduced-motion: reduce){
   .card{ animation:none; }
+  .standings-row--enter{ animation:none; opacity:1; transform:none; }
 }
