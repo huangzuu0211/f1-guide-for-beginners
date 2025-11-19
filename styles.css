@@ -165,7 +165,7 @@ body{
   font-size: 15px;
 }
 
-/* ========= Tab Switcher (navigator giữa 2 trang) ========= */
+/* ========= Tab Switcher ========= */
 .tab-switcher{
   display:inline-flex;
   gap:8px;
@@ -176,6 +176,9 @@ body{
   border:1px solid rgba(255,255,255,.08);
 }
 .tab-switcher__link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   padding:6px 14px;
   border-radius:999px;
   font-size:13px;
@@ -231,31 +234,21 @@ body{
   height:auto;
   object-fit: cover;
 }
-
-/* cover: full chiều ngang trong card */
 .media--cover img{ height: clamp(220px, 40vw, 420px); }
-
-/* wide: kéo ngang mạnh hơn bằng negative margin nhẹ */
 .media--wide{
   margin-left:-6px;
   margin-right:-6px;
 }
 .media--wide img{ height: clamp(220px, 38vw, 400px); }
-
-/* shadow: thêm đổ bóng nhẹ cho ảnh đứng một mình */
 .media--shadow{
   box-shadow: 0 8px 24px rgba(0,0,0,.35);
 }
-
-/* float: ảnh nổi quấn văn bản */
 .media--float-right{
   float:right;
   width:min(46%, 420px);
   margin: 6px 0 12px 16px;
 }
 .media--float-right img{ height:auto; }
-
-/* split: bố cục 2 cột ảnh + chữ */
 .split{
   display:grid;
   grid-template-columns: 1.05fr .95fr;
@@ -265,13 +258,13 @@ body{
 }
 .split__copy p{ margin:0; }
 
-/* ========= Standings (Tab 2) ========= */
+/* ========= Standings (layout + table) ========= */
 .standings-grid{
   display:grid;
-  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
   gap:24px;
-  margin-top: 8px;
-  align-items: stretch;
+  margin-top:8px;
+  align-items:stretch;
 }
 .standings-column{
   background:#15161b;
@@ -286,7 +279,6 @@ body{
   font-size:18px;
   font-weight:700;
 }
-
 .standings-header{
   display:grid;
   grid-template-columns: 40px 1fr 64px;
@@ -299,82 +291,172 @@ body{
 }
 .standings-header__cell--pos{ text-align:left; }
 .standings-header__cell--pts{ text-align:right; }
-
 .standings-row{
   display:grid;
   grid-template-columns: 40px 1fr 64px;
   align-items:center;
-  padding:6px 0;
+  padding:8px 0;
   border-bottom:1px solid rgba(255,255,255,.05);
   font-size:14px;
   column-gap:8px;
   position:relative;
   border-left: 3px solid transparent;
-  padding-left: 2px;
+  transition:
+    background .18s ease,
+    transform .18s ease,
+    box-shadow .18s ease;
 }
 .standings-row:last-of-type{
   border-bottom:none;
 }
-
 .standings-cell--pos{
   opacity:.8;
   font-weight:600;
-  padding-left: 6px;
+  padding-left:6px;
 }
 .standings-cell--name{
   display:flex;
   flex-direction:column;
   gap:2px;
+  position:relative;
+  padding-left:0;
 }
 .standings-cell--pts{
   text-align:right;
   font-weight:600;
   opacity:.9;
 }
-
 .driver-main,
 .team-main{
   font-weight:600;
+  margin-left:18px;
 }
 .driver-sub{
-  font-size:11px;
-  line-height:1.3;
+  font-size:12px;
   color: var(--color-muted);
+  margin-left:18px;
 }
-
 .team-dot{
   width:10px;
   height:10px;
   border-radius:50%;
   margin-right:6px;
   flex-shrink:0;
-}
-.standings-cell--name{
-  position:relative;
-  padding-left:0;
-}
-.standings-cell--name .team-dot{
   position:absolute;
   left:0;
   top:4px;
 }
-.driver-main,
-.team-main{
-  margin-left:18px;
-}
-.driver-sub{
-  margin-left:18px;
-}
-
 .standings-note{
   margin-top:auto;
   font-size:12px;
   color: var(--color-muted);
 }
+.standings-body{
+  margin-top:4px;
+}
+
+/* ========= Toolbar (search/filter/reset) ========= */
+.standings-toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:14px;
+  align-items:center;
+}
+.standings-toolbar__group{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:#14151c;
+  border-radius:999px;
+  padding:4px 10px;
+  border:1px solid rgba(255,255,255,.08);
+}
+.standings-label{
+  font-size:12px;
+  color:var(--color-muted);
+  display:flex;
+  align-items:center;
+}
+.standings-input,
+.standings-select{
+  border:none;
+  outline:none;
+  background:transparent;
+  color:var(--color-text);
+  font-size:13px;
+  font-family:inherit;
+  min-width:140px;
+}
+.standings-input::placeholder{
+  color:var(--color-muted);
+}
+.standings-select option{
+  background:#14151c;
+  color:var(--color-text);
+}
+.standings-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background:#15161b;
+  color:var(--color-text);
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+}
+.standings-btn i{ font-size:12px; }
+.standings-btn:hover{
+  background:#1b1c24;
+}
+
+/* ========= Animation & highlight ========= */
+.standings-row--enter{
+  opacity:0;
+  transform:translateY(6px);
+  animation: standings-enter .35s ease forwards;
+}
+@keyframes standings-enter{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+.standings-row--related{
+  box-shadow:0 0 0 1px rgba(255,255,255,.16);
+  transform:translateX(2px);
+  background: linear-gradient(90deg, rgba(255,255,255,.05), transparent 60%);
+}
+
+/* sort buttons */
+.js-sort{
+  background:transparent;
+  border:none;
+  color:var(--color-muted);
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.js-sort--asc::after,
+.js-sort--desc::after{
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  font-size:10px;
+}
+.js-sort--asc::after{
+  content:"\f077";
+}
+.js-sort--desc::after{
+  content:"\f078";
+}
 
 /* ========= Team color bindings ========= */
-
-/* McLaren */
 .standings-row--mclaren{
   border-left-color: var(--team-mclaren);
   background: linear-gradient(90deg, rgba(255,128,0,.08), transparent 55%);
@@ -382,8 +464,6 @@ body{
 .team-dot--mclaren{
   background: var(--team-mclaren);
 }
-
-/* Mercedes */
 .standings-row--mercedes{
   border-left-color: var(--team-mercedes);
   background: linear-gradient(90deg, rgba(0,210,190,.10), transparent 55%);
@@ -391,8 +471,6 @@ body{
 .team-dot--mercedes{
   background: var(--team-mercedes);
 }
-
-/* Red Bull */
 .standings-row--redbull{
   border-left-color: var(--team-redbull);
   background: linear-gradient(90deg, rgba(30,91,198,.10), transparent 55%);
@@ -400,8 +478,6 @@ body{
 .team-dot--redbull{
   background: var(--team-redbull);
 }
-
-/* Ferrari */
 .standings-row--ferrari{
   border-left-color: var(--team-ferrari);
   background: linear-gradient(90deg, rgba(220,0,0,.10), transparent 55%);
@@ -409,8 +485,6 @@ body{
 .team-dot--ferrari{
   background: var(--team-ferrari);
 }
-
-/* Williams */
 .standings-row--williams{
   border-left-color: var(--team-williams);
   background: linear-gradient(90deg, rgba(0,90,255,.10), transparent 55%);
@@ -418,8 +492,6 @@ body{
 .team-dot--williams{
   background: var(--team-williams);
 }
-
-/* Racing Bulls */
 .standings-row--racingbulls{
   border-left-color: var(--team-racingbulls);
   background: linear-gradient(90deg, rgba(43,69,98,.14), transparent 55%);
@@ -427,8 +499,6 @@ body{
 .team-dot--racingbulls{
   background: var(--team-racingbulls);
 }
-
-/* Aston Martin */
 .standings-row--astonmartin{
   border-left-color: var(--team-astonmartin);
   background: linear-gradient(90deg, rgba(0,111,98,.12), transparent 55%);
@@ -436,8 +506,6 @@ body{
 .team-dot--astonmartin{
   background: var(--team-astonmartin);
 }
-
-/* Haas */
 .standings-row--haas{
   border-left-color: var(--team-haas);
   background: linear-gradient(90deg, rgba(182,186,189,.14), transparent 55%);
@@ -445,8 +513,6 @@ body{
 .team-dot--haas{
   background: var(--team-haas);
 }
-
-/* Sauber / Kick Sauber */
 .standings-row--sauber{
   border-left-color: var(--team-sauber);
   background: linear-gradient(90deg, rgba(82,226,82,.12), transparent 55%);
@@ -454,8 +520,6 @@ body{
 .team-dot--sauber{
   background: var(--team-sauber);
 }
-
-/* Alpine */
 .standings-row--alpine{
   border-left-color: var(--team-alpine);
   background: linear-gradient(90deg, rgba(0,144,255,.12), transparent 55%);
@@ -502,38 +566,6 @@ body{
   }
   .card{ padding:20px; }
   .prose{ font-size:15px; }
-}
-
-/* ========= Tab Switcher (navigator giữa 2 trang) ========= */
-.tab-switcher{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
-  background: #12131a;
-  padding: 4px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.08);
-}
-
-.tab-switcher__link{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;   /* bỏ gạch chân + màu link mặc định */
-  color: var(--color-muted);
-  border: 1px solid transparent;
-  white-space: nowrap;
-}
-
-.tab-switcher__link--active{
-  background: #ffffff10;
-  color: var(--color-text);
-  border-color: rgba(255,255,255,.18);
 }
 
 @media (prefers-reduced-motion: reduce){

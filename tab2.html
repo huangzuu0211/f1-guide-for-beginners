@@ -17,7 +17,7 @@
   <!-- Header / Nav -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a href="tab1.html" class="brand">
+      <a href="index.html" class="brand">
         <span class="brand__dot" aria-hidden="true"></span>
         <span class="brand__text">F1 Guide</span>
       </a>
@@ -57,235 +57,114 @@
           </a>
         </div>
 
+        <!-- Thanh công cụ: search + filter -->
+        <div class="standings-toolbar">
+          <div class="standings-toolbar__group">
+            <label for="driverSearch" class="standings-label">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </label>
+            <input
+              id="driverSearch"
+              class="standings-input"
+              type="text"
+              placeholder="Tìm tay đua..."
+            />
+          </div>
+
+          <div class="standings-toolbar__group">
+            <label for="teamFilter" class="standings-label">
+              <i class="fa-solid fa-filter"></i>
+            </label>
+            <select id="teamFilter" class="standings-select">
+              <option value="all">Tất cả đội</option>
+            </select>
+          </div>
+
+          <button id="resetFilters" class="standings-btn">
+            <i class="fa-solid fa-rotate-left"></i>
+            Reset
+          </button>
+        </div>
+
         <article class="card">
-            <header class="card__header">
-                <span class="kicker">Tab 2</span>
-                <h2 class="card__title">Bảng xếp hạng</h2>
-                <p class="card__subtitle">
-                Dữ liệu thể hiện tình hình cạnh tranh ở cả hai hạng mục: tay đua và đội đua sau chặng São Paulo.
-                </p>
-            </header>
+          <header class="card__header">
+            <span class="kicker">Tab 2</span>
+            <h2 class="card__title">Bảng xếp hạng sau São Paulo GP 2025</h2>
+            <p class="card__subtitle">
+              Dữ liệu thể hiện tình hình cạnh tranh ở cả hai hạng mục: tay đua và đội đua sau chặng São Paulo.
+            </p>
+          </header>
 
-            <div class="standings-grid">
-                <!-- Cột 1: Drivers -->
-                <div class="standings-column">
-                <h3 class="standings-title">Bảng xếp hạng tay đua</h3>
-                <div class="standings-header">
-                    <span class="standings-header__cell standings-header__cell--pos">#</span>
-                    <span class="standings-header__cell standings-header__cell--name">Tay đua</span>
-                    <span class="standings-header__cell standings-header__cell--pts">Điểm</span>
-                </div>
+          <div class="standings-grid" id="standingsRoot">
+            <!-- Cột 1: Drivers -->
+            <div class="standings-column" data-table="drivers">
+              <h3 class="standings-title">Bảng xếp hạng tay đua</h3>
+              <div class="standings-header">
+                <button
+                  class="standings-header__cell standings-header__cell--pos js-sort"
+                  data-table="drivers"
+                  data-key="pos"
+                >
+                  #
+                </button>
+                <button
+                  class="standings-header__cell standings-header__cell--name js-sort"
+                  data-table="drivers"
+                  data-key="name"
+                >
+                  Tay đua
+                </button>
+                <button
+                  class="standings-header__cell standings-header__cell--pts js-sort"
+                  data-table="drivers"
+                  data-key="pts"
+                >
+                  Điểm
+                </button>
+              </div>
 
-                <div class="standings-row standings-row--mclaren">
-                    <span class="standings-cell standings-cell--pos">1</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--mclaren"></span>
-                    <span class="driver-main">Lando Norris</span>
-                    <span class="driver-sub">McLaren</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">390</span>
-                </div>
+              <div id="driversStandings" class="standings-body"></div>
 
-                <div class="standings-row standings-row--mclaren">
-                    <span class="standings-cell standings-cell--pos">2</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--mclaren"></span>
-                    <span class="driver-main">Oscar Piastri</span>
-                    <span class="driver-sub">McLaren</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">366</span>
-                </div>
-
-                <div class="standings-row standings-row--redbull">
-                    <span class="standings-cell standings-cell--pos">3</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--redbull"></span>
-                    <span class="driver-main">Max Verstappen</span>
-                    <span class="driver-sub">Red Bull Racing</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">341</span>
-                </div>
-
-                <div class="standings-row standings-row--mercedes">
-                    <span class="standings-cell standings-cell--pos">4</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--mercedes"></span>
-                    <span class="driver-main">George Russell</span>
-                    <span class="driver-sub">Mercedes</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">276</span>
-                </div>
-
-                <div class="standings-row standings-row--ferrari">
-                    <span class="standings-cell standings-cell--pos">5</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--ferrari"></span>
-                    <span class="driver-main">Charles Leclerc</span>
-                    <span class="driver-sub">Ferrari</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">214</span>
-                </div>
-
-                <div class="standings-row standings-row--ferrari">
-                    <span class="standings-cell standings-cell--pos">6</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--ferrari"></span>
-                    <span class="driver-main">Lewis Hamilton</span>
-                    <span class="driver-sub">Ferrari</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">148</span>
-                </div>
-
-                <div class="standings-row standings-row--mercedes">
-                    <span class="standings-cell standings-cell--pos">7</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--mercedes"></span>
-                    <span class="driver-main">Kimi Antonelli</span>
-                    <span class="driver-sub">Mercedes</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">122</span>
-                </div>
-
-                <div class="standings-row standings-row--williams">
-                    <span class="standings-cell standings-cell--pos">8</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--williams"></span>
-                    <span class="driver-main">Alexander Albon</span>
-                    <span class="driver-sub">Williams</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">73</span>
-                </div>
-
-                <div class="standings-row standings-row--sauber">
-                    <span class="standings-cell standings-cell--pos">9</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--sauber"></span>
-                    <span class="driver-main">Nico Hülkenberg</span>
-                    <span class="driver-sub">Kick Sauber</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">43</span>
-                </div>
-
-                <div class="standings-row standings-row--racingbulls">
-                    <span class="standings-cell standings-cell--pos">10</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--racingbulls"></span>
-                    <span class="driver-main">Isack Hadjar</span>
-                    <span class="driver-sub">Racing Bulls</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">43</span>
-                </div>
-
-                <p class="standings-note">
-                    Dữ liệu tay đua được tổng hợp sau chặng São Paulo GP 2025.
-                </p>
-                </div>
-
-                <!-- Cột 2: Constructors -->
-                <div class="standings-column">
-                <h3 class="standings-title">Bảng xếp hạng đội đua</h3>
-                <div class="standings-header">
-                    <span class="standings-header__cell standings-header__cell--pos">#</span>
-                    <span class="standings-header__cell standings-header__cell--name">Đội</span>
-                    <span class="standings-header__cell standings-header__cell--pts">Điểm</span>
-                </div>
-
-                <div class="standings-row standings-row--mclaren">
-                    <span class="standings-cell standings-cell--pos">1</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--mclaren"></span>
-                    <span class="team-main">McLaren</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">756</span>
-                </div>
-
-                <div class="standings-row standings-row--mercedes">
-                    <span class="standings-cell standings-cell--pos">2</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--mercedes"></span>
-                    <span class="team-main">Mercedes</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">398</span>
-                </div>
-
-                <div class="standings-row standings-row--redbull">
-                    <span class="standings-cell standings-cell--pos">3</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--redbull"></span>
-                    <span class="team-main">Red Bull Racing</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">366</span>
-                </div>
-
-                <div class="standings-row standings-row--ferrari">
-                    <span class="standings-cell standings-cell--pos">4</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--ferrari"></span>
-                    <span class="team-main">Ferrari</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">362</span>
-                </div>
-
-                <div class="standings-row standings-row--williams">
-                    <span class="standings-cell standings-cell--pos">5</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--williams"></span>
-                    <span class="team-main">Williams</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">111</span>
-                </div>
-
-                <div class="standings-row standings-row--racingbulls">
-                    <span class="standings-cell standings-cell--pos">6</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--racingbulls"></span>
-                    <span class="team-main">Racing Bulls</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">82</span>
-                </div>
-
-                <div class="standings-row standings-row--astonmartin">
-                    <span class="standings-cell standings-cell--pos">7</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--astonmartin"></span>
-                    <span class="team-main">Aston Martin</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">72</span>
-                </div>
-
-                <div class="standings-row standings-row--haas">
-                    <span class="standings-cell standings-cell--pos">8</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--haas"></span>
-                    <span class="team-main">Haas F1 Team</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">70</span>
-                </div>
-
-                <div class="standings-row standings-row--sauber">
-                    <span class="standings-cell standings-cell--pos">9</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--sauber"></span>
-                    <span class="team-main">Kick Sauber</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">62</span>
-                </div>
-
-                <div class="standings-row standings-row--alpine">
-                    <span class="standings-cell standings-cell--pos">10</span>
-                    <span class="standings-cell standings-cell--name">
-                    <span class="team-dot team-dot--alpine"></span>
-                    <span class="team-main">Alpine</span>
-                    </span>
-                    <span class="standings-cell standings-cell--pts">22</span>
-                </div>
-
-                <p class="standings-note">
-                    Điểm đội đua được tổng hợp sau chặng São Paulo GP 2025.
-                </p>
-                </div>
+              <p class="standings-note">
+                Dữ liệu tay đua được tổng hợp sau chặng São Paulo GP 2025.
+              </p>
             </div>
-            </article>
+
+            <!-- Cột 2: Constructors -->
+            <div class="standings-column" data-table="teams">
+              <h3 class="standings-title">Bảng xếp hạng đội đua</h3>
+              <div class="standings-header">
+                <button
+                  class="standings-header__cell standings-header__cell--pos js-sort"
+                  data-table="teams"
+                  data-key="pos"
+                >
+                  #
+                </button>
+                <button
+                  class="standings-header__cell standings-header__cell--name js-sort"
+                  data-table="teams"
+                  data-key="name"
+                >
+                  Đội
+                </button>
+                <button
+                  class="standings-header__cell standings-header__cell--pts js-sort"
+                  data-table="teams"
+                  data-key="pts"
+                >
+                  Điểm
+                </button>
+              </div>
+
+              <div id="teamsStandings" class="standings-body"></div>
+
+              <p class="standings-note">
+                Điểm đội đua được tổng hợp sau chặng São Paulo GP 2025.
+              </p>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   </main>
@@ -296,5 +175,8 @@
       <p class="site-footer__text">© 2025 F1 Guide</p>
     </div>
   </footer>
+
+  <!-- JS thuần -->
+  <script src="standings.js"></script>
 </body>
 </html>
