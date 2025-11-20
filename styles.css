@@ -401,20 +401,13 @@ a{
 }
 
 .standings-row{
-  display:grid;
-  grid-template-columns: 40px 1fr 64px;
-  align-items:center;
-  padding:8px 0;
-  border-bottom:1px solid rgba(255,255,255,.05);
-  font-size:14px;
-  column-gap:8px;
-  position:relative;
-  border-left: 3px solid transparent;
-  color: rgba(255,255,255,0.5);
-  transition:
-    background .18s ease,
-    transform .18s ease,
-    box-shadow .18s ease;
+  background: rgba(255,255,255,0.015); /* rất nhẹ */
+  border: none; /* nếu vẫn còn border ở phiên bản cũ */
+  border-left: 4px solid transparent;
+  border-radius: 6px;
+  padding: 8px 14px;
+  backdrop-filter: blur(2px); /* subtle glassy */
+  transition: background .25s ease, box-shadow .25s ease;
 }
 .standings-row:last-of-type{
   border-bottom:none;
@@ -472,6 +465,16 @@ a{
   color: var(--color-muted);
 }
 
+.standings-cell--name .driver-main,
+.standings-cell--name .team-main{
+  font-weight: 600;
+  color: #fff;
+}
+
+.standings-cell--name .driver-sub{
+  opacity: .55;
+}
+
 /* Animation khi render dòng */
 .standings-row--enter{
   opacity:0;
@@ -488,14 +491,11 @@ a{
 /* Highlight các dòng cùng team */
 /* Highlight theo màu team (premium glow) */
 .standings-row--related{
-  background: linear-gradient(90deg, rgba(255,255,255,0.05), transparent 70%);
-  border-left-width: 5px;
-  transform:none;
-  box-shadow: 0 0 16px currentColor;
-  transition:
-    background .25s ease,
-    box-shadow .25s ease,
-    border-left-width .25s ease;
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 0 22px currentColor, inset 0 0 12px rgba(0,0,0,0.4);
+  border-left-width: 6px;
+  transform: none;
+  transition: background .25s ease, box-shadow .25s ease, border-left-width .2s ease;
 }
 
 /* ========= Toolbar (search + filter + reset) – tab2 ========= */
